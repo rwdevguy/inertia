@@ -302,12 +302,14 @@ export default {
 
   pushState(page) {
     this.page = page
-    window.history.pushState(page, '', page.url)
+    const clone = JSON.parse(JSON.stringify(page))
+    window.history.pushState(clone, '', page.url)
   },
 
   replaceState(page) {
     this.page = page
-    window.history.replaceState(page, '', page.url)
+    const clone = JSON.parse(JSON.stringify(page))
+    window.history.replaceState(clone, '', page.url)
   },
 
   handlePopstateEvent(event) {
